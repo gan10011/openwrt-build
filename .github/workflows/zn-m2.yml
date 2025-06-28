@@ -18,7 +18,7 @@ jobs:
     name: zn-m2-imm
 
     #调用公用编译核心WRT-CORE.yml
-    uses: ./.github/workflows/core.yml
+    uses: ./.github/workflows/update-core.yml
     with:
       #编译平台
       TARGET: ipq60xx-imm
