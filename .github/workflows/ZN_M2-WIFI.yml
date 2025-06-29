@@ -2,10 +2,9 @@
 name: ZN_M2-WIFI
 
 on:
+  repository_dispatch:
   workflow_dispatch:
- # schedule:
-  #  - cron: 0 12 * * *
-inputs:
+    inputs:
       ssh:
         description: 'SSH connection to Actions'
         required: false
