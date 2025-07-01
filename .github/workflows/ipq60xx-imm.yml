@@ -1,37 +1,26 @@
-#CI项目
-name: Build ImmortalWrt Firmware
+name: ZN-M2 wifi
 
-#CI计划
 on:
-  # 手动执行
+  repository_dispatch:
   workflow_dispatch:
-  # 默认为utc时间，北京时间需要减去8
-  # schedule:
-  #   - cron: 0 13 1/7 * *
+    inputs:
+      ssh:
+        description: 'SSH connection to Actions'
+        required: false
+        default: 'false'
 
-#CI权限
-permissions: write-all
+env:
+  REPO_URL: https://github.com/VIKINGYFY/immortalwrt.git
+  REPO_BRANCH: main
+  FEEDS_CONF: feeds.conf.default
+  CONFIG_FILE: ./config/imm.config
+  UPLOAD_BIN_DIR: false
+  UPLOAD_FIRMWARE: true
+  UPLOAD_COWTRANSFER: false
+  UPLOAD_WETRANSFER: false
+  UPLOAD_RELEASE: true
+  TZ: Asia/Shanghai
 
-#CI任务
-jobs:
-  build:
-    name: ipq60xx-imm
-    runs-on: ubuntu-latest
-    timeout-minutes: 180
-
-    with:
-      #编译平台
-      TARGET: ipq60xx-imm
-      #源码
-      REPO_SOURCE: immortalwrt
-      #源码地址
-      REPO_URL: https://github.com/VIKINGYFY/immortalwrt.git
-      #源码分支
-      REPO_BRANCH: main
-      #软件源
-      FEEDS_CONF: feeds.conf.default
-      #配置文件
-      CONFIG_FILE: ./config/libWrt/wifi.config
 
     steps:
     - name: Checkout repository
