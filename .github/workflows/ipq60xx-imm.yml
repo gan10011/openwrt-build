@@ -36,8 +36,6 @@ env:
 
     - name: Configure firmware
       run: |
-        # 使用基础配置
-        cp .config.txt .config
         
         # 设置目标设备
         sed -i 's/CONFIG_TARGET_PROFILE=.*/CONFIG_TARGET_PROFILE="DEVICE_zn_m2"/' .config
