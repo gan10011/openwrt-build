@@ -1,4 +1,4 @@
-name: ZN-M2 wifi
+name: ipq60xx-imm
 
 on:
   repository_dispatch:
