@@ -1,5 +1,5 @@
 #CI项目
-name: ipq60xx-imm
+name: Build ImmortalWrt Firmware
 
 #CI计划
 on:
@@ -32,9 +32,6 @@ jobs:
       FEEDS_CONF: feeds.conf.default
       #配置文件
       CONFIG_FILE: ./config/libWrt/wifi.config
-name: Build ImmortalWrt Firmware
-
-
 
     steps:
     - name: Checkout repository
